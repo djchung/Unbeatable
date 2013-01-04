@@ -211,8 +211,6 @@
             for (NSString *previousOppMove in self.opponentMoves){
                 if (![previousOppMove isEqualToString:opponentMove]) {
                     if ([elbowCombo containsObject:opponentMove] && [elbowCombo containsObject:previousOppMove]) {
-                        NSLog(@"I'm in here");
-                        NSLog(@"elbow combo: %@", elbowCombo);
                         int opponentMoveIndex = [elbowCombo indexOfObject:opponentMove];
                         int previousOppMoveIndex = [elbowCombo indexOfObject:previousOppMove];
                         int cornerMoveIndex = 3 - (opponentMoveIndex + previousOppMoveIndex);
@@ -295,25 +293,19 @@
     }
     ;
     for (NSString *move in array){
-        NSLog(@"move : %@", move);
         int arrayIndex = [array indexOfObject:move];
         while (arrayIndex < array.count -1) {
             arrayIndex += 1;
             NSString *pairedMove = [array objectAtIndex:arrayIndex];
-            NSLog(@"move %@ and paired moved %@", move, pairedMove);
             for (NSArray *combo in self.winningCombos){
                 if ([combo containsObject:move] && [combo containsObject:pairedMove]) {
                     
-                    NSLog(@"combo at hand: %@", combo);
                     int moveIndex = [combo indexOfObject:move];
                 
                     int pairedIndex = [combo indexOfObject:pairedMove];
-                    NSLog(@"move index %d, pairedindex %d", moveIndex, pairedIndex);
                     int index = 3 - (moveIndex + pairedIndex);
-                    NSLog(@"section to play: %d", index);
                     NSString *sectionToPlay = [combo objectAtIndex:index];
                     if (![self.allMoves containsObject:sectionToPlay]){
-                        NSLog(@"sectionToplay: %@", sectionToPlay);
                         int sectionInt = [sectionToPlay intValue];
                         int viewInt = sectionInt + 10;
                         [self.view viewWithTag:sectionInt].userInteractionEnabled = NO;
