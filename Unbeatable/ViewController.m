@@ -175,7 +175,10 @@
                     }
                 }else if (buttonTag !=5 && buttonTag % 2 !=0){
                     if (![self machinePlayOppositeSectionOfTag:buttonTag]) {
-                        [self machinePlayAnyAvailable];
+                        if (![self machinePlayCorner]) {
+                            [self machinePlayAnyAvailable];
+                        }
+                        
 //                        [self checkIfTie];
                     }
                 }else if (buttonTag !=5 && buttonTag % 2 == 0){
@@ -203,6 +206,22 @@
     [self.allMoves addObject:opponentMove];
 }
 
+- (BOOL)machinePlayCorner {
+    for (NSString *move in self.cornerMoves){
+        if (![self.allMoves containsObject:move]) {
+            int sectionReference = [move intValue];
+            int viewReference = sectionReference + 10;
+            [self.view viewWithTag:viewReference].backgroundColor = [UIColor redColor];
+            [self.view viewWithTag:sectionReference].userInteractionEnabled = NO;
+            [self.machineMoves addObject:move];
+            [self.allMoves addObject:move];
+            return YES;
+        }
+        
+    }
+    return NO;
+    
+}
 - (BOOL)machinePlayCornerConsiderTag:(int)tag {
    
     NSString *opponentMove = [NSString stringWithFormat:@"%d", tag];
