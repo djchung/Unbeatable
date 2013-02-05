@@ -31,4 +31,26 @@
 @property (weak, nonatomic) IBOutlet UIButton *section9;
 
 
+@property (strong, nonatomic) IBOutlet UIImageView *imageView1;
+@property (strong, nonatomic) IBOutlet UIImageView *imageView2;
+@property (strong, nonatomic) IBOutlet UIImageView *imageView3;
+@property (strong, nonatomic) IBOutlet UIImageView *imageView4;
+@property (strong, nonatomic) IBOutlet UIImageView *imageView5;
+@property (strong, nonatomic) IBOutlet UIImageView *imageView6;
+@property (strong, nonatomic) IBOutlet UIImageView *imageView7;
+@property (strong, nonatomic) IBOutlet UIImageView *imageView8;
+@property (strong, nonatomic) IBOutlet UIImageView *imageView9;
+@property (strong, nonatomic) IBOutlet UIImageView *boardView;
+
+
+
+
+
+
+
+
+
+
+
+
 @end

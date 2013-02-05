@@ -34,6 +34,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.boardView.image = [UIImage imageNamed:@"board.png"];
 	// Do any additional setup after loading the view, typically from a nib.
     self.section1.tag = 1;
     self.section2.tag = 2;
@@ -45,15 +46,24 @@
     self.section8.tag = 8;
     self.section9.tag = 9;
     
-    self.view1.tag = 11;
-    self.view2.tag = 12;
-    self.view3.tag = 13;
-    self.view4.tag = 14;
-    self.view5.tag = 15;
-    self.view6.tag = 16;
-    self.view7.tag = 17;
-    self.view8.tag = 18;
-    self.view9.tag = 19;
+//    self.view1.tag = 11;
+    self.imageView1.tag = 11;
+//    self.view2.tag = 12;
+    self.imageView2.tag = 12;
+//    self.view3.tag = 13;
+    self.imageView3.tag = 13;
+//    self.view4.tag = 14;
+    self.imageView4.tag = 14;
+//    self.view5.tag = 15;
+    self.imageView5.tag = 15;
+//    self.view6.tag = 16;
+    self.imageView6.tag = 16;
+//    self.view7.tag = 17;
+    self.imageView7.tag = 17;
+//    self.view8.tag = 18;
+    self.imageView8.tag = 18;
+//    self.view9.tag = 19;
+    self.imageView9.tag = 19;
     
     self.topRow = [[NSArray alloc]initWithObjects:@
     "1",@"2",@"3", nil];
@@ -201,7 +211,9 @@
     int viewReference = tag + 10;
     NSString *opponentMove = [NSString stringWithFormat:@"%d", tag];
     [self.view viewWithTag:tag].userInteractionEnabled = NO;
-    [self.view viewWithTag:viewReference].backgroundColor = [UIColor blueColor];
+//    [self.view viewWithTag:viewReference].backgroundColor = [UIColor blueColor];
+    UIImageView *imageView = (UIImageView *)[self.view viewWithTag:viewReference];
+    imageView.image = [UIImage imageNamed:@"player.png"];
     [self.opponentMoves addObject:opponentMove];
     [self.allMoves addObject:opponentMove];
 }
@@ -211,7 +223,9 @@
         if (![self.allMoves containsObject:move]) {
             int sectionReference = [move intValue];
             int viewReference = sectionReference + 10;
-            [self.view viewWithTag:viewReference].backgroundColor = [UIColor redColor];
+//            [self.view viewWithTag:viewReference].backgroundColor = [UIColor redColor];
+            UIImageView *imageView = (UIImageView *)[self.view viewWithTag:viewReference];
+            imageView.image = [UIImage imageNamed:@"ironman.png"];
             [self.view viewWithTag:sectionReference].userInteractionEnabled = NO;
             [self.machineMoves addObject:move];
             [self.allMoves addObject:move];
@@ -238,7 +252,9 @@
                         if (![self.allMoves containsObject:cornerMove]) {
                             int sectionReference = [cornerMove intValue];
                             int viewReference = sectionReference + 10;
-                            [self.view viewWithTag:viewReference].backgroundColor = [UIColor redColor];
+//                            [self.view viewWithTag:viewReference].backgroundColor = [UIColor redColor];
+                            UIImageView *imageView = (UIImageView *)[self.view viewWithTag:viewReference];
+                            imageView.image = [UIImage imageNamed:@"ironman.png"];
                             [self.view viewWithTag:sectionReference].userInteractionEnabled = NO;
                             [self.machineMoves addObject:cornerMove];
                             [self.allMoves addObject:cornerMove];
@@ -255,7 +271,9 @@
             if (![self.allMoves containsObject:move]) {
                 int sectionReference = [move intValue];
                 int viewReference = sectionReference + 10;
-                [self.view viewWithTag:viewReference].backgroundColor = [UIColor redColor];
+              
+                UIImageView *imageView = (UIImageView *)[self.view viewWithTag:viewReference];
+                imageView.image = [UIImage imageNamed:@"ironman.png"];
                 [self.view viewWithTag:sectionReference].userInteractionEnabled = NO;
                 [self.machineMoves addObject:move];
                 [self.allMoves addObject:move];
@@ -268,7 +286,8 @@
     return NO;
 }
 - (void)machinePlayMiddle {
-    self.view5.backgroundColor = [UIColor redColor];
+//    self.view5.backgroundColor = [UIColor redColor];
+    self.imageView5.image = [UIImage imageNamed:@"ironman.png"];
     self.section5.userInteractionEnabled = NO;
     [self.machineMoves addObject:@"5"];
     [self.allMoves addObject:@"5"];
@@ -278,7 +297,9 @@
         if (![self.allMoves containsObject:move]) {
             int sectionReference = [move intValue];
             int viewReference = sectionReference + 10;
-            [self.view viewWithTag:viewReference].backgroundColor = [UIColor redColor];
+//            [self.view viewWithTag:viewReference].backgroundColor = [UIColor redColor];
+            UIImageView *imageView = (UIImageView *)[self.view viewWithTag:viewReference];
+            imageView.image = [UIImage imageNamed:@"ironman.png"];
             [self.view viewWithTag:sectionReference].userInteractionEnabled = NO;
             [self.machineMoves addObject:move];
             [self.allMoves addObject:move];
@@ -292,7 +313,9 @@
     NSString *machineMove = [NSString stringWithFormat:@"%d", sectionReference];
     
     if (![self.allMoves containsObject:machineMove]) {
-        [self.view viewWithTag:viewReference].backgroundColor = [UIColor redColor];
+//        [self.view viewWithTag:viewReference].backgroundColor = [UIColor redColor];
+        UIImageView *imageView = (UIImageView *)[self.view viewWithTag:viewReference];
+        imageView.image = [UIImage imageNamed:@"ironman.png"];
         [self.view viewWithTag:sectionReference].userInteractionEnabled = NO;
         [self.machineMoves addObject:machineMove];
         [self.allMoves addObject:machineMove];
@@ -328,7 +351,9 @@
                         int sectionInt = [sectionToPlay intValue];
                         int viewInt = sectionInt + 10;
                         [self.view viewWithTag:sectionInt].userInteractionEnabled = NO;
-                        [self.view viewWithTag:viewInt].backgroundColor = [UIColor redColor];
+//                        [self.view viewWithTag:viewInt].backgroundColor = [UIColor redColor];
+                        UIImageView *imageView = (UIImageView *)[self.view viewWithTag:viewInt];
+                        imageView.image = [UIImage imageNamed:@"ironman.png"];
                         
                         [self.machineMoves addObject:sectionToPlay];
                         [self.allMoves addObject:sectionToPlay];
@@ -366,7 +391,9 @@
         int sectionReference = [referenceString intValue];
         int viewReference = sectionReference + 10;
         [self.view viewWithTag:sectionReference].userInteractionEnabled = YES;
-        [self.view viewWithTag:viewReference].backgroundColor = [UIColor whiteColor];
+//        [self.view viewWithTag:viewReference].backgroundColor = [UIColor whiteColor];
+        UIImageView *imageView = (UIImageView *)[self.view viewWithTag:viewReference];
+        imageView.image = nil;
     }
     self.isFirstMove = YES;
     [self.opponentMoves removeAllObjects];
@@ -393,6 +420,16 @@
     [self setSection7:nil];
     [self setSection8:nil];
     [self setSection9:nil];
+    [self setImageView1:nil];
+    [self setImageView2:nil];
+    [self setImageView3:nil];
+    [self setImageView4:nil];
+    [self setImageView5:nil];
+    [self setImageView6:nil];
+    [self setImageView7:nil];
+    [self setImageView8:nil];
+    [self setImageView9:nil];
+    [self setBoardView:nil];
     [super viewDidUnload];
 }
 @end

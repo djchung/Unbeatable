@@ -17,8 +17,9 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
-    self.viewController.navigationItem.title = @"Unbeatable";
+    self.viewController.navigationItem.titleView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"logo.png"]];
     UINavigationController *uinav = [[UINavigationController alloc]initWithRootViewController:self.viewController];
+    [[UINavigationBar appearance]setTintColor:[UIColor colorWithRed:197/255.0 green:197/255.0 blue:197/255.0 alpha:1.0]];
     self.window.rootViewController = uinav;
     [self.window makeKeyAndVisible];
     return YES;
